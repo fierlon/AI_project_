@@ -10,15 +10,18 @@ public class PlayerAI extends Player {
     //here is the algorithm that the user chooses
 
     public int chooseNumberInRow() {
-        //Gets the current LinkedList,
-        // gives the INDEX by which the number that the bot selects is located
-        RadioButton algorithm = SettingsScene.getSelectedAlgoritmRadioButton();//here is the algorithm that the user chooses
+        String algorithm = SettingsScene.getSelectedAlgoritmRadioButton();//here is the algorithm that the user chooses
 
-        if (algorithm.getText().equals("Minimaksa")) {
+        if (algorithm.equals("MinMax")) {
+            //for testing
+            //System.out.println("MinMax");
             return GameLogic.numberRowList.indexOf(com.project_ai.Game.AIAlgorithm.MinimaxAlgorithm.makeDecision());
-        } else if (algorithm.getText().equals("Minimaksa")){
-            return 0;
+        } else if (algorithm.equals("AlphaBeta")){
+            //for testing
+            //System.out.println("AlphaBeta");
+            return GameLogic.numberRowList.indexOf(com.project_ai.Game.AIAlgorithm.AlphaBetaAlgorithm.makeDecision());
         }
+        System.out.println("ERROR");
         return 0;
     }
 }

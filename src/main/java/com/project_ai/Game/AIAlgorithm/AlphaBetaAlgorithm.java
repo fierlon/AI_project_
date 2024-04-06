@@ -1,23 +1,22 @@
 package com.project_ai.Game.AIAlgorithm;
 
-public class MinimaxAlgorithm {
+public class AlphaBetaAlgorithm {
     private static final int MAX_DEPTH = 10;
-    private static int nodesVisited=0;
-
+    private static int nodesVisited = 0;
 
     public static int makeDecision() {
         int bestScore = Integer.MIN_VALUE;
-        int chosenValue=-1;
+        int chosenValue = -1;
         GameGraph.Node rootNode = GameGraph.generateDecisionTree(MAX_DEPTH);
         //for testing.  show Game Graph
         //GameGraph.printDecisionTree(rootNode);
 
         for (GameGraph.Node childNode : rootNode.getChildren()) {
-            int score = minimax(childNode, MAX_DEPTH, false);
+            int score = alphabeta(childNode, MAX_DEPTH, Integer.MIN_VALUE, Integer.MAX_VALUE, false);
             //for testing
             //System.out.println("Score for node value " + childNode.getValue() + "depth: "+ childNode.getDepth()+ ",score: "+ + score); // testing // prints score for each node
 
-            if (score > bestScore) {//update best decision
+            if (score > bestScore) {
                 bestScore = score;
                 chosenValue = childNode.getValue();
             }
@@ -28,27 +27,34 @@ public class MinimaxAlgorithm {
         System.out.println("Nodes visited: " + nodesVisited);// print count of nodes visited*/
         return chosenValue;
     }
-    private static int minimax(GameGraph.Node node, int depth, boolean isMaximizingPlayer) {
-        nodesVisited++; // counting nodes visited
 
-        // base case ig
+    private static int alphabeta(GameGraph.Node node, int depth, int alpha, int beta, boolean isMaximizingPlayer) {
+        nodesVisited++;
+
         if (depth == 0 || node.getChildren().isEmpty()) {
             return node.getScoreDifferenceBetweenAiAndUser();
         }
 
-
-        if (isMaximizingPlayer) { // AI is maximizing player  since difference = player - ai
+        if (isMaximizingPlayer) {
             int bestScore = Integer.MIN_VALUE;
             for (GameGraph.Node childNode : node.getChildren()) {
-                int score = minimax(childNode, depth - 1, false);// // Recursively evaluate child nodes
-                bestScore = Math.max(bestScore, score); // choose best score from choices
+                int score = alphabeta(childNode, depth - 1, alpha, beta, false);
+                bestScore = Math.max(bestScore, score);
+                alpha = Math.max(alpha, bestScore);
+                if (beta <= alpha) {
+                    break; // Beta cutoff
+                }
             }
             return bestScore;
-        } else { // player is minimising player
+        } else {
             int bestScore = Integer.MAX_VALUE;
             for (GameGraph.Node childNode : node.getChildren()) {
-                int score = minimax(childNode, depth - 1, true);// recursively evaluate child nodes
-                bestScore = Math.min(bestScore, score); //choose min
+                int score = alphabeta(childNode, depth - 1, alpha, beta, true);
+                bestScore = Math.min(bestScore, score);
+                beta = Math.min(beta, bestScore);
+                if (beta <= alpha) {
+                    break; // Alpha cutoff
+                }
             }
             return bestScore;
         }

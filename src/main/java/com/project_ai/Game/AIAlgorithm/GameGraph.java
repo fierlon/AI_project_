@@ -128,7 +128,6 @@ public class GameGraph {
     public static void printDecisionTree(Node rootnode) {
         printDecisionTreeRecursive(rootnode, 0);
     }
-
     private static void printDecisionTreeRecursive(Node node, int depth) {
         if (node == null) {
             return;

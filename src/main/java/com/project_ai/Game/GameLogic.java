@@ -27,6 +27,7 @@ public class GameLogic {
             numberRowList.add(randomNumber);
         }
     }
+    //for testing
     public static void fillNumberRowList_test(int SelectedLength){
         numberRowList.add(1);
         numberRowList.add(1);

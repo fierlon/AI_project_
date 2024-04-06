@@ -57,7 +57,7 @@ public class SceneManager {
 
 
     public void startGame() {
-        GameLogic.fillNumberRowList(SettingsScene.getselectedLengthSlider());
+        GameLogic.fillNumberRowList(SettingsScene.getselectedLengthSlider());//if you need test algorithm use GameLogic.fillNumberRowList_test //check GameLogic
         //Writes LinkedList data to the scene for the first time
         //(should be replaced by a separate method and called here)
         StringBuilder stringBuilder = new StringBuilder();//creates a string                (StringBuilder)

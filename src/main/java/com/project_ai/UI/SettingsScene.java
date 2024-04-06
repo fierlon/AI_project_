@@ -1,5 +1,6 @@
 package com.project_ai.UI;
 
+import com.project_ai.Game.GameLogic;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -126,8 +127,13 @@ public class SettingsScene extends Scene {
     }
 
     //Method for getting the selected algoritm
-    public static RadioButton getSelectedAlgoritmRadioButton() {
-        return selectedAlgoritmRadioButton;
+    public static String getSelectedAlgoritmRadioButton() {
+        if (selectedAlgoritmRadioButton.getText().equals("Minimaksa")) {
+            return "MinMax";
+        } else if (selectedAlgoritmRadioButton.getText().equals("Alpha-beta")){
+            return "AlphaBeta";
+        }
+        return "error";
     }
 
     //Method for getting the selected Length
