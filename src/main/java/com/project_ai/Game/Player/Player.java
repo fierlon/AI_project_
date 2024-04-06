@@ -1,10 +1,5 @@
 package com.project_ai.Game.Player;
 
-import com.project_ai.UI.SettingsScene;
-import javafx.scene.control.RadioButton;
-
-import java.util.LinkedList;
-
 //We need to work with access modifiers,
 //rewrite direct references to methods,
 // and write the methods themselves.

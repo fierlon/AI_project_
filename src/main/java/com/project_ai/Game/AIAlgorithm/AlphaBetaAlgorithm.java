@@ -14,7 +14,7 @@ public class AlphaBetaAlgorithm {
         for (GameGraph.Node childNode : rootNode.getChildren()) {
             int score = alphabeta(childNode, MAX_DEPTH, Integer.MIN_VALUE, Integer.MAX_VALUE, false);
             //for testing
-            //System.out.println("Score for node value " + childNode.getValue() + "depth: "+ childNode.getDepth()+ ",score: "+ + score); // testing // prints score for each node
+            System.out.println("Score for node value " + childNode.getValue() + "depth: "+ childNode.getDepth()+ ",score: "+ + score); // testing // prints score for each node
 
             if (score > bestScore) {
                 bestScore = score;
@@ -22,9 +22,9 @@ public class AlphaBetaAlgorithm {
             }
         }
         //for testing
-        /*System.out.println("Best decision score: " + bestScore); // testing // prints the best decision score
+        System.out.println("Best decision score: " + bestScore); // testing // prints the best decision score
         System.out.println("decision value: " + chosenValue);
-        System.out.println("Nodes visited: " + nodesVisited);// print count of nodes visited*/
+        System.out.println("Nodes visited: " + nodesVisited);// print count of nodes visited
         return chosenValue;
     }
 
