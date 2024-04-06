@@ -27,6 +27,31 @@ public class GameLogic {
             numberRowList.add(randomNumber);
         }
     }
+    public static void fillNumberRowList_test(int SelectedLength){
+        numberRowList.add(1);
+        numberRowList.add(1);
+        numberRowList.add(1);
+        numberRowList.add(1);
+        numberRowList.add(1);
+
+        numberRowList.add(2);
+        numberRowList.add(2);
+        numberRowList.add(2);
+        numberRowList.add(2);
+        numberRowList.add(2);
+
+        numberRowList.add(3);
+        numberRowList.add(3);
+        numberRowList.add(3);
+        numberRowList.add(3);
+        numberRowList.add(3);
+
+        numberRowList.add(4);
+        numberRowList.add(4);
+        numberRowList.add(4);
+        numberRowList.add(4);
+        numberRowList.add(4);
+    }
 
     //deleting a number and calculating the change in score
     private static int deleteChosenNumber(int ChosenNumberIndex){
@@ -85,13 +110,13 @@ public class GameLogic {
         //System.out.println("GameLogic.PlayerUser.playerScore "+Main.PlayerUser.playerScore);
         //System.out.println("GameLogic.PlayerUser.playerScore "+Main.PlayerAI.playerScore);
         if (Main.PlayerUser.getPlayerScore()<Main.PlayerAI.getPlayerScore()){
-                return "User";
+                return "Spēlētājs";
         } else if (Main.PlayerUser.getPlayerScore()>Main.PlayerAI.getPlayerScore()){
                 return "Ai";
         } else {
             //Not described in the condition,
             // but a draw is theoretically possible.
-            return null;
+            return "Neizšķirts";
         }
     }
 }

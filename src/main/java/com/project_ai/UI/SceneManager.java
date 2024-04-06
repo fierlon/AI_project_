@@ -1,5 +1,7 @@
 package com.project_ai.UI;
 
+import com.project_ai.Game.AIAlgorithm.GameGraph;
+import com.project_ai.Game.AIAlgorithm.MinimaxAlgorithm;
 import com.project_ai.Game.GameLogic;
 import com.project_ai.Main;
 import javafx.scene.control.Button;

@@ -29,6 +29,7 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
 
+
 //This is to check if something breaks. It is needed to view the LinkedList state when closing the application.
 /*        StringBuilder stringBuilder = new StringBuilder();
         for (int element : GameLogic.numberRowList) {
